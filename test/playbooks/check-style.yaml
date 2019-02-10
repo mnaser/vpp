@@ -1,0 +1,12 @@
+---
+- hosts: all
+  tasks:
+    - name: Run include-raw-vpp-checkstyle.sh
+      shell: "bash {{ ansible_user_dir }}/{{ zuul.projects['github.com/lfn-zuul-demo/ci-management'].src_dir }}/jjb/vpp/include-raw-vpp-checkstyle.sh"
+      args:
+        chdir: "{{ zuul.project.src_dir }}"
+
+    - name: Run include-raw-vpp-test-checkstyle.sh
+      shell: "bash {{ ansible_user_dir }}/{{ zuul.projects['github.com/lfn-zuul-demo/ci-management'].src_dir }}/jjb/vpp/include-raw-vpp-test-checkstyle.sh"
+      args:
+        chdir: "{{ zuul.project.src_dir }}"

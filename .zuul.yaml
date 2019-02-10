@@ -1,0 +1,12 @@
+---
+- job: 
+    name: vpp-checkstyle
+    parent: unittests
+    run: test/playbooks/check-style.yaml
+    required-projects:
+      - lfn-zuul-demo/ci-management
+
+- project:
+    check:
+      jobs:
+        - vpp-checkstyle
