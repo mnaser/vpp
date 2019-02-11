@@ -1,0 +1,15 @@
+---
+- hosts: all
+  tasks:
+    - name: Run include-raw-vpp-make-test-docs.sh
+      shell: "bash {{ ansible_user_dir }}/{{ zuul.projects['github.com/lfn-zuul-demo/ci-management'].src_dir }}/jjb/vpp/include-raw-vpp-make-test-docs.sh"
+      args:
+        chdir: "{{ zuul.project.src_dir }}"
+
+- hosts: all
+  roles:
+    - role: stage-output
+      stage_dir: "{{ ansible_user_dir }}/zuul-output"
+      stage_compress_logs: false
+      zuul_copy_output:
+        "{{ zuul.project.src_dir }}/test/doc/build/html/": logs

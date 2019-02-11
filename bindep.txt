@@ -1,3 +1,9 @@
+build-essential
 clang-format
 make
 indent
+doxygen
+graphviz
+python-dev
+python-pyparsing
+python-jinja2

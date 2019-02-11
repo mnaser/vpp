@@ -1,0 +1,7 @@
+---
+- hosts: all
+  tasks:
+    - name: Run include-raw-vpp-docs.sh
+      shell: "bash {{ ansible_user_dir }}/{{ zuul.projects['github.com/lfn-zuul-demo/ci-management'].src_dir }}/jjb/vpp/include-raw-vpp-docs.sh"
+      args:
+        chdir: "{{ zuul.project.src_dir }}"
