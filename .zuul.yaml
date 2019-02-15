@@ -20,6 +20,13 @@
     required-projects:
       - lfn-zuul-demo/ci-management
 
+- job:
+    name: vpp-clang
+    parent: unittests
+    run: test/playbooks/clang.yaml
+    required-projects:
+      - lfn-zuul-demo/ci-management
+
 # https://github.com/FDio/ci-management/blob/49b3712b4e2477f38a0e70f1f2d235d51cef1887/jjb/vpp/vpp.yaml#L709
 #vpp-verify-master-clang/5065/ (2/8)
 #vpp-verify-master-osleap15/6174/ (3/8)
@@ -35,3 +42,4 @@
         - vpp-checkstyle
         - vpp-docs
         - vpp-make-test-docs
+        - vpp-clang

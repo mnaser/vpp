@@ -1,5 +1,7 @@
 build-essential
+clang
 clang-format
+fakeroot
 make
 indent
 doxygen
